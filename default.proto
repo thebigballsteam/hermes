@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package thebigballsteam;
+
+service GameEngine {
+    rpc subscribe (stream GameControls) returns (stream GameFeatures);
+}
+
+message GameControls {
+    required bool jump = 1;
+}
+
+message GameFeatures {
+    required bool died = 1;
+    required int32 score = 2;
+    required float obstacleDistance = 3;
+}
